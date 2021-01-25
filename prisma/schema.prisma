@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Timer {
+  Id      String    @default(uuid()) @id
+  User    User      @relation(fields: [UserId], references: [Id])
+  UserId  String
+
+  Description   String
+  StartedAt   DateTime  @default(now())
+  EndedAt     DateTime?
+
+  @@index([StartedAt, EndedAt])
+}
+
+model User {
+  Id          String      @default(uuid()) @id
+  Email       String      @unique
+  FirstName   String
+  Surname     String
+  Timers      Timer[]
+}
