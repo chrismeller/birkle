@@ -25,9 +25,11 @@ model Timer {
 model User {
   Id                  String      @default(uuid()) @id
   Email               String      @unique
-  PasswordHash        String
   FirstName           String
   Surname             String
+
+  PasswordHash        String
+  PasswordSalt        String
 
   EmailVerifiedAt     DateTime?
   VerificationToken   String
