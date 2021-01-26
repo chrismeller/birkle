@@ -4,6 +4,7 @@ import { LoggerService } from './logger.service';
 
 @Module({
   providers: [LoggerService],
-  imports: [ConfigModule]
+  imports: [ConfigModule],
+  exports: [LoggerService]
 })
 export class LoggerModule {}
