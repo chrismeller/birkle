@@ -11,21 +11,26 @@ generator client {
 }
 
 model Timer {
-  Id      String    @default(uuid()) @id
-  User    User      @relation(fields: [UserId], references: [Id])
-  UserId  String
+  Id            String    @default(uuid()) @id
+  User          User      @relation(fields: [UserId], references: [Id])
+  UserId        String
 
   Description   String
-  StartedAt   DateTime  @default(now())
-  EndedAt     DateTime?
+  StartedAt     DateTime  @default(now())
+  EndedAt       DateTime?
 
   @@index([StartedAt, EndedAt])
 }
 
 model User {
-  Id          String      @default(uuid()) @id
-  Email       String      @unique
-  FirstName   String
-  Surname     String
-  Timers      Timer[]
+  Id                  String      @default(uuid()) @id
+  Email               String      @unique
+  PasswordHash        String
+  FirstName           String
+  Surname             String
+
+  EmailVerifiedAt     DateTime?
+  VerificationToken   String
+
+  Timers              Timer[]
 }
