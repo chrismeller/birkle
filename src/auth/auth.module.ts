@@ -3,9 +3,10 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { Hasher } from './hasher.provider';
 import { UsersModule } from '../users/users.module';
+import { LocalStrategy } from './local.strategy';
 
 @Module({
-  providers: [AuthService, Hasher],
+  providers: [AuthService, Hasher, LocalStrategy],
   imports: [UsersModule],
   controllers: [AuthController]
 })

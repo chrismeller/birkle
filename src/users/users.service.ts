@@ -40,7 +40,7 @@ export class UsersService {
     async markEmailVerified(id: string, verifiedAt: Date) {
         return await this.db.user.update({
             data: {
-                EmailVerifiedAt: verifiedAt,
+                EmailVerifiedAt: verifiedAt.toISOString(),
             },
             where: {
                 Id: id,

@@ -1,6 +1,7 @@
-import { Controller, Request, Post, Res, Body, Logger } from '@nestjs/common';
+import { Controller, Request, Post, Get, Param, Res, Body, Logger, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { get } from 'http';
 import { v4 as uuidv4 } from 'uuid';
-import { UsersService } from 'src/users/users.service';
 import { AuthService } from './auth.service';
 import { RegisterUserDto } from './dtos/register-user.dto';
 
@@ -30,6 +31,25 @@ export class AuthController {
         catch(e) {
             this.logger.error('Error during registration!', e);
             return res.status(500).send({ statusCode: 500, error: 'Internal Error' });
+        }
+    }
+
+    @UseGuards(AuthGuard('local'))
+    @Post('login')
+    public async login(@Request() req) {
+        // return this.authService.login(req.user);
+        return true;
+    }
+
+    @Get('verify/:userId/:token')
+    public async verify(@Res() res, @Param('userId') userId: string, @Param('token') token: string) {
+        const result = await this.authService.verifyEmail(userId, token);
+
+        if (result === true) {
+            return res.status(200).send({ statusCode: 200, message: 'success' });
+        }
+        else {
+            return res.status(400).send({ statusCode: 400, message: 'Invalid token!' });
         }
     }
 }
