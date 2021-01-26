@@ -13,4 +13,8 @@ export class Hasher {
         const hashBuffer = crypto.pbkdf2Sync(value, salt, 100000, 64, 'sha512');
         return hashBuffer.toString('hex');
     }
+
+    public static createSalt(length: number = 16): string {
+        return crypto.randomBytes(length).toString('hex');
+    }
 }

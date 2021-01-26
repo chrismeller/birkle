@@ -1,4 +1,5 @@
 import { Controller, Request, Post, Res, Body, Logger } from '@nestjs/common';
+import { v4 as uuidv4 } from 'uuid';
 import { UsersService } from 'src/users/users.service';
 import { AuthService } from './auth.service';
 import { RegisterUserDto } from './dtos/register-user.dto';
@@ -12,16 +13,23 @@ export class AuthController {
     }
 
     @Post('register')
-    public async register (@Request() req, @Res() res, @Body() user: RegisterUserDto) {
+    public async register (@Res() res, @Body() user: RegisterUserDto) {
         try {
             // nest has done our (limited) validation for us, all we'll do is check to see if the user exists
-            await this.authService.register(user);
+            if (await this.authService.userExists(user.email)) {
+                return res.status(400).send({ statusCode: 400, message: 'User already exists!'  });
+            }
 
-            return res.code(201).send({ result: 'success' });
+            // convert the DTO to the interface our service expects by adding an ID
+            var u = {...user, id: uuidv4()};
+
+            await this.authService.register(u);
+
+            return res.status(201).send({ statusCode: 201, message: 'success' });
         }
         catch(e) {
             this.logger.error('Error during registration!', e);
-            return res.code(500).send({ result: 'error' });
+            return res.status(500).send({ statusCode: 500, error: 'Internal Error' });
         }
     }
 }

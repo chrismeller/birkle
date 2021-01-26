@@ -23,7 +23,7 @@ export class UsersService {
         });
     }
 
-    async create(id: string, email: string, firstname: string, surname: string, passwordHash: string, verificationToken: string): Promise<User | null> {
+    async create(id: string, email: string, firstname: string, surname: string, passwordHash: string, passwordSalt: string, verificationToken: string): Promise<User | null> {
         return await this.db.user.create({
             data: {
                 Id: id,
@@ -31,6 +31,7 @@ export class UsersService {
                 FirstName: firstname,
                 Surname: surname,
                 PasswordHash: passwordHash,
+                PasswordSalt: passwordSalt,
                 VerificationToken: verificationToken,
             }
         });
