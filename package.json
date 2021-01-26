@@ -26,10 +26,12 @@
     "@nestjs/platform-express": "^7.5.1",
     "@prisma/client": "^2.15.0",
     "better-sqlite3": "^7.1.2",
+    "class-validator": "^0.13.1",
     "dotenv": "^8.2.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.3",
+    "uuid": "^8.3.2",
     "winston": "^3.3.3"
   },
   "devDependencies": {
