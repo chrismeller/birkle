@@ -36,3 +36,12 @@ model User {
 
   Timers              Timer[]
 }
+
+model Token {
+  Token String @id
+  Type String
+  UserId String
+  CreatedAt DateTime
+  ExpiresAt DateTime
+  RevokedAt DateTime?
+}

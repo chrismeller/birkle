@@ -37,8 +37,7 @@ export class AuthController {
     @UseGuards(AuthGuard('local'))
     @Post('login')
     public async login(@Request() req) {
-        // return this.authService.login(req.user);
-        return true;
+        return this.authService.login(req.user);
     }
 
     @Get('verify/:userId/:token')
