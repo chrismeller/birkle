@@ -1,6 +1,5 @@
 import { Controller, Request, Post, Get, Param, Res, Body, Logger, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { get } from 'http';
 import { v4 as uuidv4 } from 'uuid';
 import { AuthService } from './auth.service';
 import { RegisterUserDto } from './dtos/register-user.dto';
@@ -50,5 +49,18 @@ export class AuthController {
         else {
             return res.status(400).send({ statusCode: 400, message: 'Invalid token!' });
         }
+    }
+
+    @UseGuards(AuthGuard('jwt'))
+    @Get('me')
+    public async getProfile(@Request() req) {
+        // @todo we should really populate more than just the ID that JWT passes around
+        return req.user;
+    }
+
+    @UseGuards(AuthGuard('jwt.refreshToken'))
+    @Post('token')
+    public async refreshToken(@Request() req) {
+        return this.authService.login(req.user);
     }
 }
