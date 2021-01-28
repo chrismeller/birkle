@@ -28,6 +28,7 @@
     "@nestjs/platform-express": "^7.6",
     "@nestjs/platform-fastify": "^7.6",
     "@prisma/client": "^2.15.0",
+    "@sendgrid/mail": "^7.4.2",
     "better-sqlite3": "^7.1.2",
     "class-transformer": "^0.3.2",
     "class-validator": "^0.13.1",

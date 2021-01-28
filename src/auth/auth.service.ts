@@ -8,7 +8,8 @@ import { User } from 'src/users/interfaces/user.interface';
 import { JwtFactory } from './jwt.factory';
 import { Token } from './interfaces/token.interface';
 import { TokenService } from './token.service';
-import { ConfigService } from 'src/config/config.service';
+import { ConfigService } from '../config/config.service';
+import { MailService } from '../mail/mail.service';
 
 @Injectable()
 export class AuthService {
@@ -18,7 +19,8 @@ export class AuthService {
         private readonly usersService: UsersService, 
         private readonly jwtFactory: JwtFactory, 
         private readonly tokenService: TokenService,
-        private readonly configService: ConfigService) {
+        private readonly configService: ConfigService,
+        private readonly mailService: MailService) {
 
     }
 
@@ -34,7 +36,18 @@ export class AuthService {
         await this.usersService.create(user.id, user.email, user.firstname, user.surname, passwordHash, salt, verificationToken);
 
         // the user was created, so we should send an email to them to verify their account
-        // @todo send out the email, rather than just talking about it
+        const verificationLink = new URL(`/auth/verify/${user.id}/${verificationToken}`, this.configService.get('BASE_URL', '', true));
+
+        // send the email so they can validate their address
+        const response = await this.mailService.send(
+            user.email,
+            this.configService.get('EMAIL_FROM', '', true),
+            'Welcome to TimeTrackr!', 
+            `Please verify your account by visiting the following link: ${verificationLink}`,
+            `Please verify your TimeTrackr account by <a href="${verificationLink}">clicking on this link!</a>`,
+        );
+
+        console.log(response);
 
         return true;
     }
@@ -153,15 +166,16 @@ export class AuthService {
     
         // create a new verification token for the user and set it on their account
         const verificationToken = uuidv4();
-        await this.usersService.updateVerificationToken(existingUser.Id, verificationToken, new Date());
+        await this.usersService.updateVerificationToken(existingUser.Id, verificationToken);
     
-        const verificationLink = new URL(`/auth/verify/${existingUser.id}/${verificationToken}`, this.configService.get('BASE_URL', '', true));
+        const verificationLink = new URL(`/auth/verify/${existingUser.Id}/${verificationToken}`, this.configService.get('BASE_URL', '', true));
     
         await this.mailService.send(
-          existingUser.email,
+          existingUser.Email,
           this.configService.get('EMAIL_FROM', '', true),
-          'Reset your Habatic Password!', `Reset your Habatic password by clicking on the following link: ${verificationLink}`,
-          `Reset your Habatic password by <a href="${verificationLink}">clicking on this link!</a>`,
+          'Reset your TimeTrackr Password!', 
+          `Reset your password by clicking on the following link: ${verificationLink}`,
+          `Reset your TimeTrackr password by <a href="${verificationLink}">clicking on this link!</a>`,
         );
       }
 }
