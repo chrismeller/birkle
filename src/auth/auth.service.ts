@@ -39,15 +39,15 @@ export class AuthService {
         const verificationLink = new URL(`/auth/verify/${user.id}/${verificationToken}`, this.configService.get('BASE_URL', '', true));
 
         // send the email so they can validate their address
-        const response = await this.mailService.send(
-            user.email,
-            this.configService.get('EMAIL_FROM', '', true),
-            'Welcome to TimeTrackr!', 
-            `Please verify your account by visiting the following link: ${verificationLink}`,
-            `Please verify your TimeTrackr account by <a href="${verificationLink}">clicking on this link!</a>`,
-        );
-
-        console.log(response);
+        if (this.configService.getBoolean('ENABLE_MAIL', false, false)) {
+            await this.mailService.send(
+                user.email,
+                this.configService.get('EMAIL_FROM', '', true),
+                'Welcome to TimeTrackr!', 
+                `Please verify your account by visiting the following link: ${verificationLink}`,
+                `Please verify your TimeTrackr account by <a href="${verificationLink}">clicking on this link!</a>`,
+            );
+        }
 
         return true;
     }
@@ -170,12 +170,14 @@ export class AuthService {
     
         const verificationLink = new URL(`/auth/verify/${existingUser.Id}/${verificationToken}`, this.configService.get('BASE_URL', '', true));
     
-        await this.mailService.send(
-          existingUser.Email,
-          this.configService.get('EMAIL_FROM', '', true),
-          'Reset your TimeTrackr Password!', 
-          `Reset your password by clicking on the following link: ${verificationLink}`,
-          `Reset your TimeTrackr password by <a href="${verificationLink}">clicking on this link!</a>`,
-        );
+        if (this.configService.getBoolean('ENABLE_MAIL', false, false)) {
+            await this.mailService.send(
+            existingUser.Email,
+            this.configService.get('EMAIL_FROM', '', true),
+            'Reset your TimeTrackr Password!', 
+            `Reset your password by clicking on the following link: ${verificationLink}`,
+            `Reset your TimeTrackr password by <a href="${verificationLink}">clicking on this link!</a>`,
+            );
+        }
       }
 }
