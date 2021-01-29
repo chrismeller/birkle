@@ -37,3 +37,6 @@ cp template.env development.env
 npx prisma migrate dev --preview-feature
 npm run start:dev
 ```
+
+## Appendix C: Prisma
+I stumbled upon Prisma when I was starting this project and it looked interesting. I generally strongly dislike most ORMs, but it seemed opinionated enough to make things easy. I found the syntax for more advanced queries overly complicated, but by then I was far enough in that I couldn't start over. I would not use it again. Give me a plain old SQL query any day...
