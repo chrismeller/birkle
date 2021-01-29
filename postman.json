@@ -1,0 +1,527 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+			"uid": "0-100d9bb1-3834-4750-a696-fc33cb4bf891",
+			"name": "Birkle",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [],
+			"folders_order": [
+				"80a96499-e7d6-4444-b6bd-591840750720",
+				"c6ec7ba8-dbd0-42ef-8201-b73e67fd8a97"
+			],
+			"protocolProfileBehavior": {},
+			"createdAt": "2021-01-28T16:33:16.320Z",
+			"folders": [
+				{
+					"id": "80a96499-e7d6-4444-b6bd-591840750720",
+					"uid": "0-80a96499-e7d6-4444-b6bd-591840750720",
+					"name": "Auth",
+					"description": null,
+					"auth": null,
+					"events": null,
+					"collection": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"folder": null,
+					"order": [
+						"7fd58676-24ec-4da3-85dc-3d17156127b5",
+						"c333f935-e503-470e-beaa-278d685d6360",
+						"8e3d8866-776c-4977-a184-cacd987a3876",
+						"5b2a14e2-9770-44b1-b0f6-955c73906957"
+					],
+					"folders_order": [],
+					"owner": "0",
+					"protocolProfileBehavior": {},
+					"createdAt": "2021-01-28T16:42:42.529Z",
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"folderId": "80a96499-e7d6-4444-b6bd-591840750720"
+				},
+				{
+					"id": "c6ec7ba8-dbd0-42ef-8201-b73e67fd8a97",
+					"uid": "0-c6ec7ba8-dbd0-42ef-8201-b73e67fd8a97",
+					"name": "Timers",
+					"description": null,
+					"auth": null,
+					"events": null,
+					"collection": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"folder": null,
+					"order": [
+						"9574468f-4709-4fa4-9557-fa1a9cf43edb",
+						"8c3c88ba-b292-43bc-8b7f-bd2eb7fd3f14",
+						"acd507a4-26ab-439a-897c-e2bf893db94d",
+						"7a3a7c1a-aec1-427d-a967-fa8f8e35c8b2",
+						"07712afd-1562-40b6-a618-2c9ed62e30f7",
+						"b52d41bc-0c7e-42f7-9aee-d88b33e4bd7e"
+					],
+					"folders_order": [],
+					"owner": "0",
+					"protocolProfileBehavior": {},
+					"createdAt": "2021-01-28T16:44:11.288Z",
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"folderId": "c6ec7ba8-dbd0-42ef-8201-b73e67fd8a97"
+				}
+			],
+			"requests": [
+				{
+					"id": "07712afd-1562-40b6-a618-2c9ed62e30f7",
+					"uid": "0-07712afd-1562-40b6-a618-2c9ed62e30f7",
+					"name": "End",
+					"url": "http://localhost:30000/timers/:id/end",
+					"description": null,
+					"data": [
+						{
+							"key": "endedAt",
+							"value": "2020-01-01T17:15:00Z",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataOptions": null,
+					"dataMode": "urlencoded",
+					"headerData": null,
+					"method": "POST",
+					"pathVariableData": [
+						{
+							"key": "id",
+							"value": "9b2f68f0-015d-4e0e-9d2b-a896ef8dcb82"
+						}
+					],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{access_token}}"
+							}
+						]
+					},
+					"events": null,
+					"folder": "c6ec7ba8-dbd0-42ef-8201-b73e67fd8a97",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{access_token}}"
+					},
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"pathVariables": {
+						"id": "9b2f68f0-015d-4e0e-9d2b-a896ef8dcb82"
+					}
+				},
+				{
+					"id": "5b2a14e2-9770-44b1-b0f6-955c73906957",
+					"uid": "0-5b2a14e2-9770-44b1-b0f6-955c73906957",
+					"name": "Login",
+					"url": "http://localhost:30000/auth/login",
+					"description": null,
+					"data": [
+						{
+							"key": "email",
+							"value": "chris@doesnthaveone.com",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "abcd1234",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataOptions": null,
+					"dataMode": "urlencoded",
+					"headerData": null,
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": "80a96499-e7d6-4444-b6bd-591840750720",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"pathVariables": {}
+				},
+				{
+					"id": "7a3a7c1a-aec1-427d-a967-fa8f8e35c8b2",
+					"uid": "0-7a3a7c1a-aec1-427d-a967-fa8f8e35c8b2",
+					"name": "Delete",
+					"url": "http://localhost:30000/timers/:id",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "DELETE",
+					"pathVariableData": [
+						{
+							"key": "id",
+							"value": "9b2f68f0-015d-4e0e-9d2b-a896ef8dcb82"
+						}
+					],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{access_token}}"
+							}
+						]
+					},
+					"events": null,
+					"folder": "c6ec7ba8-dbd0-42ef-8201-b73e67fd8a97",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{access_token}}"
+					},
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"pathVariables": {
+						"id": "9b2f68f0-015d-4e0e-9d2b-a896ef8dcb82"
+					}
+				},
+				{
+					"id": "7fd58676-24ec-4da3-85dc-3d17156127b5",
+					"uid": "0-7fd58676-24ec-4da3-85dc-3d17156127b5",
+					"name": "Register",
+					"url": "http://localhost:30000/auth/register",
+					"description": null,
+					"data": [
+						{
+							"key": "email",
+							"value": "chris@doesnthaveone.com",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "firstname",
+							"value": "Chris",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "surname",
+							"value": "Meller",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "abcd1234",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataOptions": null,
+					"dataMode": "urlencoded",
+					"headerData": null,
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": "80a96499-e7d6-4444-b6bd-591840750720",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"pathVariables": {}
+				},
+				{
+					"id": "8c3c88ba-b292-43bc-8b7f-bd2eb7fd3f14",
+					"uid": "0-8c3c88ba-b292-43bc-8b7f-bd2eb7fd3f14",
+					"name": "Update",
+					"url": "http://localhost:30000/timers/:id",
+					"description": null,
+					"data": [
+						{
+							"key": "description",
+							"value": "Some timer updated",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "startedAt",
+							"value": "2020-01-01T16:15:00Z",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "endedAt",
+							"value": "2020-01-01T16:15:00Z",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataOptions": null,
+					"dataMode": "urlencoded",
+					"headerData": null,
+					"method": "PUT",
+					"pathVariableData": [
+						{
+							"key": "id",
+							"value": "9b2f68f0-015d-4e0e-9d2b-a896ef8dcb82"
+						}
+					],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{access_token}}"
+							}
+						]
+					},
+					"events": null,
+					"folder": "c6ec7ba8-dbd0-42ef-8201-b73e67fd8a97",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{access_token}}"
+					},
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"pathVariables": {
+						"id": "9b2f68f0-015d-4e0e-9d2b-a896ef8dcb82"
+					}
+				},
+				{
+					"id": "8e3d8866-776c-4977-a184-cacd987a3876",
+					"uid": "0-8e3d8866-776c-4977-a184-cacd987a3876",
+					"name": "Verify Email",
+					"url": "http://localhost:30000/auth/verify/:userId/:token",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "GET",
+					"pathVariableData": [
+						{
+							"key": "userId",
+							"value": "f751270b-e891-473d-abd0-f5cbfdc945f0"
+						},
+						{
+							"key": "token",
+							"value": "b8b1629e-1d05-4d68-832f-4534fd56ccec"
+						}
+					],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": "80a96499-e7d6-4444-b6bd-591840750720",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"pathVariables": {
+						"userId": "f751270b-e891-473d-abd0-f5cbfdc945f0",
+						"token": "b8b1629e-1d05-4d68-832f-4534fd56ccec"
+					}
+				},
+				{
+					"id": "9574468f-4709-4fa4-9557-fa1a9cf43edb",
+					"uid": "0-9574468f-4709-4fa4-9557-fa1a9cf43edb",
+					"name": "Create",
+					"url": "http://localhost:30000/timers",
+					"description": null,
+					"data": [
+						{
+							"key": "description",
+							"value": "Some timer",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "startedAt",
+							"value": "2020-01-01T16:15:00Z",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "endedAt",
+							"value": "2020-01-01T16:15:01Z",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataOptions": null,
+					"dataMode": "urlencoded",
+					"headerData": null,
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{access_token}}"
+							}
+						]
+					},
+					"events": null,
+					"folder": "c6ec7ba8-dbd0-42ef-8201-b73e67fd8a97",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{access_token}}"
+					},
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"pathVariables": {}
+				},
+				{
+					"id": "acd507a4-26ab-439a-897c-e2bf893db94d",
+					"uid": "0-acd507a4-26ab-439a-897c-e2bf893db94d",
+					"name": "Get All",
+					"url": "http://localhost:30000/timers",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{access_token}}"
+							}
+						]
+					},
+					"events": null,
+					"folder": "c6ec7ba8-dbd0-42ef-8201-b73e67fd8a97",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{access_token}}"
+					},
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"pathVariables": {}
+				},
+				{
+					"id": "b52d41bc-0c7e-42f7-9aee-d88b33e4bd7e",
+					"uid": "0-b52d41bc-0c7e-42f7-9aee-d88b33e4bd7e",
+					"name": "Get One",
+					"url": "http://localhost:30000/timers/:id",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "GET",
+					"pathVariableData": [
+						{
+							"key": "id",
+							"value": "9ded3d2f-b721-405e-aa3c-71b52e75748f"
+						}
+					],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{access_token}}"
+							}
+						]
+					},
+					"events": null,
+					"folder": "c6ec7ba8-dbd0-42ef-8201-b73e67fd8a97",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{access_token}}"
+					},
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"pathVariables": {
+						"id": "9ded3d2f-b721-405e-aa3c-71b52e75748f"
+					}
+				},
+				{
+					"id": "c333f935-e503-470e-beaa-278d685d6360",
+					"uid": "0-c333f935-e503-470e-beaa-278d685d6360",
+					"name": "Refresh Token",
+					"url": "http://localhost:30000/auth/token?refresh_token={{refresh_token}}",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [
+						{
+							"key": "refresh_token",
+							"value": "{{refresh_token}}",
+							"equals": true,
+							"description": null,
+							"enabled": true
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{refresh_token}}"
+							}
+						]
+					},
+					"events": null,
+					"folder": "80a96499-e7d6-4444-b6bd-591840750720",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{refresh_token}}"
+					},
+					"collectionId": "100d9bb1-3834-4750-a696-fc33cb4bf891",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "bfc4b8ef-82e2-4224-8802-694eb03f2d15",
+			"name": "Local",
+			"values": [
+				{
+					"key": "access_token",
+					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5NTU2MmYxNS0yMDYxLTRkMDItOWYxZC1hNGU2Yjc3YjA0MWQiLCJpYXQiOjE2MTE4NTU2OTksImV4cCI6MTYxMTg1OTI5OX0.-j38-IyeCf4enK7U99StMXQj981dr9_mpQsyQCS2QeA\n",
+					"enabled": true
+				},
+				{
+					"key": "refresh_token",
+					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5NTU2MmYxNS0yMDYxLTRkMDItOWYxZC1hNGU2Yjc3YjA0MWQiLCJpYXQiOjE2MTE4NTU2OTksImV4cCI6MTYxMzA2NTI5OX0.JkwNaEajXojC-_YdxHGeo6ViMKfSMhAh5EaRokd7uC4",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "120aaa96-43d2-4d41-b99a-9def01ce149c",
+			"name": "My Workspace - globals",
+			"values": []
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}
