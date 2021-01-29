@@ -40,3 +40,6 @@ npm run start:dev
 
 ## Appendix C: Prisma
 I stumbled upon Prisma when I was starting this project and it looked interesting. I generally strongly dislike most ORMs, but it seemed opinionated enough to make things easy. I found the syntax for more advanced queries overly complicated, but by then I was far enough in that I couldn't start over. I would not use it again. Give me a plain old SQL query any day...
+
+## Appendix D: Sendgrid
+The app does actually require that you verify your email address, so if you use a valid one and include the Sendgrid API key I provided via email, you will actually recieve an email with a link. If something doesn't work or that's too cumbersome, you can manually mark accounts as verified using any SQLite client: `update User set EmailVerifiedAt = datetime();`
