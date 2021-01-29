@@ -10,7 +10,7 @@ import { JwtStrategy } from './jwt.strategy';
 import { JwtRefreshTokenStrategy } from './jwt.refreshToken.strategy';
 import { TokenService } from './token.service';
 import { ConfigModule } from '../config/config.module';
-import { DbModule } from '../db/db.module';
+import { DbModule } from '../database/db.module';
 import { PassportModule } from '@nestjs/passport';
 
 @Module({

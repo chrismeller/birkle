@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TimersService } from './timers.service';
 import { TimersController } from './timers.controller';
-import { DbModule } from '../db/db.module';
+import { DbModule } from '../database/db.module';
 
 @Module({
   controllers: [TimersController],

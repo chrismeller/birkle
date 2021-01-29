@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { CreateTimerDto } from './dto/create-timer.dto';
 import { UpdateTimerDto } from './dto/update-timer.dto';
 import { EndTimerDto } from './dto/end-timer.dto';
-import { DbService } from '../db/db.service';
+import { DbService } from '../database/db.service';
 
 @Injectable()
 export class TimersService {

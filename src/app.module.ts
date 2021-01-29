@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from './config/config.module';
 import { UsersModule } from './users/users.module';
-import { DbModule } from './db/db.module';
+import { DbModule } from './database/db.module';
 import { AuthModule } from './auth/auth.module';
 import { MailModule } from './mail/mail.module';
 import { TimersModule } from './timers/timers.module';
